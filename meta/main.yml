@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Jared Hocutt
+  description: Adds the Visual Studio Code yum repository and installs Visual Studio Code.
+
+  license: BSD
+
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: Fedora
+    versions:
+    - 27
