@@ -8,7 +8,9 @@ None
 
 ## Role Variables
 
-None
+| Variable            | Required | Default | Description                                                                                                              |
+| ------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `vscode_extensions` | :x:      | `[]`    | A list of Visual Studio Code extensions to install. Packages can be found [here](https://marketplace.visualstudio.com/). |
 
 ## Dependencies
 
@@ -18,6 +20,9 @@ None
 
 ```yaml
 - hosts: localhost
+  vars:
+    vscode_extensions:
+      - ms-python.python
   roles:
       - jaredhocutt.vscode
 ```

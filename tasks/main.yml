@@ -16,3 +16,11 @@
     name: code
     state: present
   become: yes
+
+- name: Install Visual Studio Code extensions
+  shell: code --install-extension {{ item }}
+  with_items: "{{ vscode_extensions }}"
+  register: vscode_install_extension
+  changed_when:
+    - "'is already installed' not in vscode_install_extension.stdout"
+    - "'was successfully installed' in vscode_install_extension.stdout"
