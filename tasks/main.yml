@@ -1,6 +1,7 @@
 ---
+# tasks file for vscode
 
-- name: Create yum repository
+- name: Create Visual Studio Code repository
   yum_repository:
     name: vscode
     description: Visual Studio Code
@@ -16,17 +17,3 @@
     name: code
     state: present
   become: yes
-
-- name: Get installed Visual Studio Code extensions
-  command: code --list-extensions
-  register: vscode_extenstions_installed
-  changed_when: no
-
-- name: Install Visual Studio Code extensions
-  shell: code --install-extension {{ item }}
-  with_items: "{{ vscode_extensions }}"
-  register: vscode_install_extension
-  when: item not in vscode_extenstions_installed.stdout
-  changed_when:
-    - "'is already installed' not in vscode_install_extension.stdout"
-    - "'was successfully installed' in vscode_install_extension.stdout"

@@ -1,16 +1,22 @@
 # Visual Studio Code
 
-Adds the Visual Studio Code yum repository and installs Visual Studio Code.
+This role handles configuring the Visual Studio Code repository and then
+install Visual Studio Code.
+
+In a previous version of this role, it would also install extensions as well,
+but this was removed due extensions such as settings-sync, which is integrated
+directly with Visual Studio Code and provides a more robust feature set.
 
 ## Requirements
 
-None
+The hosts you are targeting should have the following packages:
+
+- python >= 2.6
+- python-dnf
 
 ## Role Variables
 
-| Variable            | Required | Default | Description                                                                                                              |
-| ------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `vscode_extensions` | :x:      | `[]`    | A list of Visual Studio Code extensions to install. Packages can be found [here](https://marketplace.visualstudio.com/). |
+None
 
 ## Dependencies
 
@@ -18,11 +24,19 @@ None
 
 ## Example Playbook
 
+
 ```yaml
-- hosts: localhost
-  vars:
-    vscode_extensions:
-      - ms-python.python
+- hosts: servers
   roles:
-      - jaredhocutt.vscode
+    - role: jaredhocutt.vscode
 ```
+
+## License
+-------
+
+MIT
+
+## Author Information
+------------------
+
+Jared Hocutt (@jaredhocutt)
