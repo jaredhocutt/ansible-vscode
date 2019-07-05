@@ -32,11 +32,9 @@ None
 ```
 
 ## License
--------
 
 MIT
 
 ## Author Information
-------------------
 
 Jared Hocutt (@jaredhocutt)
